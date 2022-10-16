@@ -1,2 +1,3 @@
 # CommandProjectForHackathon
-test push
+test push project
+╰(*°▽°*)╯
