@@ -1,0 +1,2 @@
+# CommandProjectForHackathon
+ pip
