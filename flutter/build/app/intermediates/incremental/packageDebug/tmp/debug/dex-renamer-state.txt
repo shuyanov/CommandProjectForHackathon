@@ -1,0 +1,4 @@
+#Sun Oct 16 16:57:50 MSK 2022
+base.0=C\:\\Users\\SCO\\Documents\\GitHub\\CommandProjectForHackathon\\flutter\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
