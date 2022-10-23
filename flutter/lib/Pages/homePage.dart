@@ -1,4 +1,6 @@
+import 'package:command_flutter/Pages/MyStyle.dart';
 import 'package:flutter/material.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -21,13 +23,38 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('HomePage'),),
+      appBar: AppBar(title: Text('HomePage'),
+        actions: <Widget>[
+          IconButton(
+              onPressed: (){ // Уведомления
+                // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("You tap buttom"))); выводи сообщение на экрав в нижнем баре
+                Navigator.push(context, MaterialPageRoute<void>(
+                    builder: (BuildContext context){
+                      return Scaffold(
+                        appBar: AppBar(
+                          title: const MyStatelessWidget(),
+                        ),
+                        body: const Center(
+                          child: Text("data",
+                          style: TextStyle(fontSize: 36)
+                          ),
+                        ),
+                      );
+                    }
+                ));
+              },
+              icon: const Icon(Icons.add_alert))
+        ],
+      ),
       body: PageView(
         controller:  pageController,
         children: [
-          Container(color: Colors.redAccent),
+          Align(alignment: Alignment.center,
+          child: Text("Hello, Flutter", style: TextStyle(fontSize: 52),),),
+          Container(color: Colors.redAccent,),
           Container(color: Colors.blue,),
-          Container(color: Colors.green,)
+          Container(color: Colors.green,),
+          Container(color: Colors.white,)
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
@@ -43,3 +70,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
