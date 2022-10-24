@@ -14,7 +14,10 @@ class MyStatelessWidget extends StatelessWidget {
         Align(alignment: Alignment(-0.50, -0.900),
               child: Text(
                   "Фио",
-                  style: TextStyle(fontSize: 32)),
+                  style: TextStyle(fontSize: 32))
+        ),
+        Center(
+          child: Text('First Page'),
         ),
         Center(
           child: Text('Second Page'),

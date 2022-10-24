@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder: (BuildContext context){
                       return Scaffold(
                         appBar: AppBar(
-                          title: const Text("alert"),
+                          title: const MyStatelessWidget(),
                         ),
                         body: const Center(
                           child: Text("data",
@@ -51,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Align(alignment:  Alignment.center,
           child: MyStatelessWidget()),
+
           Align(alignment: Alignment.center,
           child: Text("Hello, Flutter", style: TextStyle(fontSize: 52),),),
           Container(color: Colors.redAccent,),
