@@ -32,10 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder: (BuildContext context){
                       return Scaffold(
                         appBar: AppBar(
+<<<<<<<<< Temporary merge branch 1
                           title: const MyStatelessWidget(),
+=========
+                          title: const Text("alert"),
+>>>>>>>>> Temporary merge branch 2
                         ),
                         body: const Center(
-                          child: Text("avait",
+                          child: Text("data",
                           style: TextStyle(fontSize: 36)
                           ),
                         ),
@@ -49,20 +53,23 @@ class _HomeScreenState extends State<HomeScreen> {
       body: PageView(
         controller:  pageController,
         children: [
+<<<<<<<<< Temporary merge branch 1
+=========
+          Align(alignment:  Alignment.center,
+          child: MyStatelessWidget()),
+>>>>>>>>> Temporary merge branch 2
+          Align(alignment: Alignment.center,
+          child: Text("Hello, Flutter", style: TextStyle(fontSize: 52),),),
           Container(color: Colors.redAccent,),
-
-          Container(alignment: Alignment.center,
-          child: Text("Hello, Flutter", style: TextStyle(fontSize: 52),),
-          ),
-
-          Container(
-              child: MyStatelessWidget()),
+          Container(color: Colors.blue,),
+          Container(color: Colors.green,),
+          Container(color: Colors.white,)
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.lens_outlined), label: 'News'),
-        BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: 'PersonalData'),
+        BottomNavigationBarItem(icon: Icon(Icons.lens_outlined), label: 'lens'),
+        BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: 'unit'),
       ],
         currentIndex: _selectIndex,
         selectedItemColor: Colors.white,

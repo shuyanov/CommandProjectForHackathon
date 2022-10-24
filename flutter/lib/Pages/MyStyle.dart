@@ -11,15 +11,16 @@ class MyStatelessWidget extends StatelessWidget {
       /// Use [Axis.vertical] to scroll vertically.
       controller: controller,
       children: const <Widget>[
-        Align(alignment: Alignment(-0.90, -0.900),
-              child:
-              CircleAvatar(
-                backgroundColor: Colors.yellowAccent,
-                child: const Text('MH',style: TextStyle(fontSize: 36),),
-                radius: 40,
-              ),
-              // Text("Фио",style: TextStyle(fontSize: 32),),
-          ),
+<<<<<<<<< Temporary merge branch 1
+        Center(
+          child: Text('First Page'),
+=========
+        Align(alignment: Alignment(-0.50, -0.900),
+              child: Text(
+                  "Фио",
+                  style: TextStyle(fontSize: 32)),
+>>>>>>>>> Temporary merge branch 2
+        ),
         Center(
           child: Text('Second Page'),
         ),
