@@ -1,32 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'MyStyle.dart';
+import '../Widget/WidgetPage.dart';
 
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _selectIndex = 0;
-  PageController pageController = PageController();
-
-  get child => null;
-
-  void onTappen(int index){
-    setState(() {
-      _selectIndex = index;
-    });
-    pageController.jumpToPage(index);
-  }
+class UserData extends StatelessWidget {
+  const UserData({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('HomePage'),
+      appBar: AppBar(
+        title: Text("UserCase"),
         actions: <Widget>[
           IconButton(
               onPressed: (){ // Уведомления
@@ -41,9 +24,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text("data", style: TextStyle(fontSize: 36),),
-                             ],
-                            ),
+                            ],
                           ),
+                        ),
                       );
                     }
                 ));
@@ -51,27 +34,20 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: const Icon(Icons.add_alert))
         ],
       ),
-      body: Align(
-        alignment: Alignment(0, 0),
-            child:Column(
-              children: [
-                Text("data"),
-                MyStatelessWidget(),
-              ],
+      body:  Container(
+        alignment: Alignment.topLeft,
+        child: Row(
+          children: [
+            MyStateless(),
+            UserText(text: "Shuanov Max")
+          ],
         ),
-      ),
+          ),
       bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home', ),
         BottomNavigationBarItem(icon: Icon(Icons.lens_outlined), label: 'lens'),
         BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: 'User'),
-      ],
-        currentIndex: _selectIndex,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.green,
-        onTap: onTappen,
-      ),
+      ]),
     );
   }
 }
-
-

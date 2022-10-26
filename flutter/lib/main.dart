@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'Pages/homePage.dart';
+import 'User/DataUser.dart';
+import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
-void main() => runApp(new MyApp());
+void main(){
+  debugPaintSizeEnabled = true;
+  return runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -15,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData.dark(),
-        home: HomeScreen(),
+        home: UserData(),
     );
   }
 }
