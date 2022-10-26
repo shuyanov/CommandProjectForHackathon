@@ -1,6 +1,5 @@
+import 'package:command_flutter/Pages/MyStyle.dart';
 import 'package:flutter/material.dart';
-
-import 'MyStyle.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -13,8 +12,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectIndex = 0;
   PageController pageController = PageController();
-
-  get child => null;
 
   void onTappen(int index){
     setState(() {
@@ -35,15 +32,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder: (BuildContext context){
                       return Scaffold(
                         appBar: AppBar(
+                          title: const MyStatelessWidget(),
                         ),
-                        body: Center(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text("data", style: TextStyle(fontSize: 36),),
-                             ],
-                            ),
+                        body: const Center(
+                          child: Text("avait",
+                          style: TextStyle(fontSize: 36)
                           ),
+                        ),
                       );
                     }
                 ));
@@ -51,19 +46,23 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: const Icon(Icons.add_alert))
         ],
       ),
-      body: Align(
-        alignment: Alignment(0, 0),
-            child:Column(
-              children: [
-                Text("data"),
-                MyStatelessWidget(),
-              ],
-        ),
+      body: PageView(
+        controller:  pageController,
+        children: [
+          Container(color: Colors.redAccent,),
+
+          Container(alignment: Alignment.center,
+          child: Text("Hello, Flutter", style: TextStyle(fontSize: 52),),
+          ),
+
+          Container(
+              child: MyStatelessWidget()),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home', ),
-        BottomNavigationBarItem(icon: Icon(Icons.lens_outlined), label: 'lens'),
-        BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: 'User'),
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.lens_outlined), label: 'News'),
+        BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: 'PersonalData'),
       ],
         currentIndex: _selectIndex,
         selectedItemColor: Colors.white,
