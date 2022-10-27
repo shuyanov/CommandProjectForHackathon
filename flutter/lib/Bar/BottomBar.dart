@@ -39,7 +39,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.blueAccent,
         leading: IconButton(
           icon: const Icon(Icons.person_pin),
           tooltip: 'Профиль',
@@ -49,7 +49,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   return Scaffold(
                     appBar: AppBar(
                       title: const Text('Профиль'),
-                      backgroundColor: Colors.cyan,
+                      backgroundColor: Colors.blueAccent,
                     ),
                     body: SafeArea(
                       child: Row(
@@ -78,7 +78,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           IconButton(
             icon: const Icon(Icons.add_alert_rounded),
             tooltip: 'Уведомления',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute<void>(
+                builder: (BuildContext){
+                  return Scaffold(
+                    appBar: AppBar(
+                      title: const Text('Уведомления'),
+                      backgroundColor: Colors.blueAccent,
+                    ),
+                  );
+                }
+              ));
+            },
           )
         ],
       ),
@@ -86,26 +97,26 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: _WidgetOption.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem> [
+        items: <BottomNavigationBarItem> [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_filled),
             label: 'Главная',
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
             label: 'Чаты',
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.blue.shade800,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.mark_as_unread),
             label: 'Заявки',
-            backgroundColor: Colors.amber,
+            backgroundColor: Colors.purple.shade500,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.monetization_on),
             label: 'Оплата',
-            backgroundColor: Colors.redAccent,
+            backgroundColor: Colors.yellow.shade700,
           ),
         ],
         currentIndex: _selectedIndex,
