@@ -49,7 +49,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   return Scaffold(
                     appBar: AppBar(
                       title: const Text('Профиль'),
-                      backgroundColor: Colors.blueAccent,
+                      backgroundColor: Colors.blueAccent,//Color.fromARGB(255, 210, 227, 246)
                     ),
                     body: SafeArea(
                       child: Row(
