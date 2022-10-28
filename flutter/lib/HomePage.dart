@@ -9,25 +9,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex =0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 35, fontWeight: FontWeight.bold);
-  static const List<Widget> _WidgetOption = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
+  int _currentIndex = 0;
+
+  static const _navigationBarItems = <BottomNavigationBarItem>[
+    BottomNavigationBarItem(
+      icon: Icon(Icons.home),
+      label: 'Home',
+      backgroundColor: Colors.blueAccent,
     ),
-    Text(
-      'Index 1: Чаты',
-      style: optionStyle,
+    BottomNavigationBarItem(
+      icon: Icon(Icons.message),
+      label: 'Message',
+      backgroundColor: Colors.blue,
     ),
-    ProfilePage(),
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  static const List<Widget> _pages = <Widget>[
+    Text('home'),
+    Text('message'),
+    Text('person'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,32 +37,30 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.blueAccent,
         leading: IconButton(
           icon: const Icon(Icons.person_pin),
-          tooltip: 'Профиль',
           onPressed: () {
             Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext){
-                  return Scaffold(
+              builder: (BuildContext){
+                return Scaffold(
                     appBar: AppBar(
                       title: const Text('Профиль'),
                       backgroundColor: Colors.blueAccent,//Color.fromARGB(255, 210, 227, 246)
-                    ),
-                    body: SafeArea(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                body: SafeArea(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
                         children: [
-                          Column(
-                            children: [
-                              Padding(padding: EdgeInsets.only(top: 30)),
-                              CircleAvatar(
-                                backgroundImage: AssetImage('image/llll.jpg'),
-                                //backgroundColor: Colors.white,
-                                radius: 60,
-                              ),
-                              Text('Имя пользователя', style: TextStyle(fontSize: 32)),
-                            ],
-                          )
+                        Padding(padding: EdgeInsets.only(top: 30)),
+                        CircleAvatar(
+                          backgroundImage: AssetImage('image/llll.jpg'),
+                          radius: 60,
+                        ),
+                        Text('Имя пользователя', style: TextStyle(fontSize: 32)),
                         ],
-                      ),
+                       )
+                      ],
+                     ),
                     ),
                   );
                 }
@@ -88,26 +87,17 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Center(
-        child: _WidgetOption.elementAt(_selectedIndex),
+        child: _pages.elementAt(_currentIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem> [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
-            label: 'Главная',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Чаты',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.monetization_on),
-            label: 'Профиль',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        onTap: _onItemTapped,
+        items: _navigationBarItems,
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }
