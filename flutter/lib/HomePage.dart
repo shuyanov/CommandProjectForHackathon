@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'Widget/Bar/Profile.dart';
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _HomePageState extends State<HomePage> {
   int _selectedIndex =0;
   static const TextStyle optionStyle = TextStyle(fontSize: 35, fontWeight: FontWeight.bold);
   static const List<Widget> _WidgetOption = <Widget>[
@@ -19,14 +20,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       'Index 1: Чаты',
       style: optionStyle,
     ),
-    Text(
-      'Index 2: Заявки',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Оплата',
-      style: optionStyle,
-    ),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -80,14 +74,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             tooltip: 'Уведомления',
             onPressed: () {
               Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext){
-                  return Scaffold(
-                    appBar: AppBar(
-                      title: const Text('Уведомления'),
-                      backgroundColor: Colors.blueAccent,
-                    ),
-                  );
-                }
+                  builder: (BuildContext){
+                    return Scaffold(
+                      appBar: AppBar(
+                        title: const Text('Уведомления'),
+                        backgroundColor: Colors.blueAccent,
+                      ),
+                    );
+                  }
               ));
             },
           )
@@ -101,26 +95,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home_filled),
             label: 'Главная',
-            backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
             label: 'Чаты',
-            backgroundColor: Colors.blue.shade800,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.mark_as_unread),
-            label: 'Заявки',
-            backgroundColor: Colors.purple.shade500,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.monetization_on),
-            label: 'Оплата',
-            backgroundColor: Colors.yellow.shade700,
+            label: 'Профиль',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
+        selectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),
     );
